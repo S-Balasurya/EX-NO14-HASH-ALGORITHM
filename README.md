@@ -1,6 +1,11 @@
 # EX-NO14-HASH-ALGORITHM
 
+## NAME : Balasurya S
+
+## REG NUMBER : 212225100003
+
 ## AIM:
+
 To implement HASH ALGORITHM
 
 ## ALGORITHM:
@@ -27,9 +32,46 @@ To implement HASH ALGORITHM
 
 
 ## Program:
+```c
+#include <stdio.h>
 
+void computeHash(char message[], unsigned char *hash)
+{
+    *hash = 0;
+    for (int i = 0; message[i] != '\0'; i++)
+        *hash = (*hash ^ message[i]) + message[i];
+}
 
+int main()
+{
+    char message[256];
+    unsigned char hash;
+    unsigned int received;
+
+    printf("Enter the message: ");
+    scanf("%255s", message);
+
+    computeHash(message, &hash);
+
+    printf("Computed Hash (in hex): %02x\n", hash);
+
+    printf("Enter the received hash (in hex): ");
+    scanf("%x", &received);
+
+    if (hash == received)
+        printf("Hash verification successful. Message is unchanged.\n");
+    else
+        printf("Hash verification failed. Message has been altered.\n");
+
+    return 0;
+}
+```
 ## Output:
 
+<img width="1610" height="788" alt="image" src="https://github.com/user-attachments/assets/3472cd6d-0671-41d8-85f0-95b01d1b58f5" />
+
+
+
 ## Result:
+
 The program is executed successfully.
